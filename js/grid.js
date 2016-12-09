@@ -1,19 +1,27 @@
-var nsquares = 5000;
-
 $(document).ready(function() {
-	createGrid(nsquares);
+	var answer = prompt("Enter the dimension of the box (i.e. the number of squares)", "Value should be between 1-64");
+	var nSquares = parseInt(answer);
 
-	$(".square").hover(function() {
-		$(this).css("background-color", "black");
-	});
+	if(nSquares != null && nSquares <= 200) {
+		var squareSize = (800 / nSquares).toPrecision(15);
+		createGrid(nSquares*nSquares, squareSize);
+		$(".square").hover(function() {
+			$(this).css("background-color", "black");
+		});
+	} else {
+		alert("Please enter a valid number. BTW it's between 1 and 64.");
+	}
+
+	
 });
 
-function createGrid(number) {
+function createGrid(number, size) {
 	var $square;
-	
+
 	for(var i = 0; i < number; i++) {
 		$square = $("<div></div>");
 		$square.addClass('square');
+		$square.css({'height': size+"px", 'width': size+"px"});
 		$(".gridbox").append($square);
 	}
 }
@@ -21,7 +29,11 @@ function createGrid(number) {
 
 
 /**
-	create a div (place it in a variable)
-	apply a class to the div
-	append div to the gridbox
+	Initially empty screen
+	button asks user for a number (prompt)
+	this number is used to determine the square size (this is because the box does not change)
+	-	take the box dimension and divide it to the number of squares. this gives you the dimension of a square
+	-	use the .css() to edit the stylesheet (in createGrid)
+	-	??
+	-	Finished.
 */
