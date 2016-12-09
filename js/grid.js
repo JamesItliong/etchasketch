@@ -1,11 +1,14 @@
-var nsquares = 225;
+var nsquares = 5000;
 
 $(document).ready(function() {
 	createGrid(nsquares);
+
+	$(".square").hover(function() {
+		$(this).css("background-color", "black");
+	});
 });
 
 function createGrid(number) {
-	
 	var $square;
 	
 	for(var i = 0; i < number; i++) {
@@ -13,14 +16,9 @@ function createGrid(number) {
 		$square.addClass('square');
 		$(".gridbox").append($square);
 	}
-	
-	/*
-	for(var i = 0; i < number; i++) {
-		$("body").append($('<div/>', {'class' : 'square'}));
-	}
-	*/
-	return true;
 }
+
+
 
 /**
 	create a div (place it in a variable)

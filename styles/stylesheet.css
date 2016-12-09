@@ -1,6 +1,6 @@
 .gridbox {
 	position: relative;
-	left:100px;
+	margin: auto;
 	height: 1000px;
 	width: 500px;
 }
@@ -8,8 +8,7 @@
 .square {
 	position: relative;
 	float: left;
-	height: 30px;
-	width: 30px;
-	background-color: red;
-	border: solid 1px white;
+	height: 5px;
+	width: 5px;
+	background-color: gray;
 }
