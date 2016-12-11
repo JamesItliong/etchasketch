@@ -1,14 +1,13 @@
 .gridbox {
 	position: relative;
 	margin: auto;
-	height: 1000px;
-	width: 500px;
+	height: 800px;
+	width: 800px;
+	background-color: red;
 }
 
 .square {
 	position: relative;
 	float: left;
-	height: 5px;
-	width: 5px;
 	background-color: gray;
 }
