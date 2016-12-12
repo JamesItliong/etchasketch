@@ -1,13 +1,39 @@
+.border {
+	position: relative;
+	margin: auto;
+	border-radius: 20px;
+	height: 800px;
+	width: 800px;
+
+	background-color: red;
+}
+
+#title {
+	position:relative;
+	top:15px;
+	font-family: 'Kaushan Script';
+	font-size: 30px;
+	color: #FFD700;
+	text-align: center;
+	
+}
+
 .gridbox {
 	position: relative;
 	margin: auto;
-	height: 800px;
-	width: 800px;
-	background-color: red;
+	height: 700px;
+	width: 700px;
+	top: 30px;
+
+	background-color: gray;
 }
 
 .square {
 	position: relative;
 	float: left;
 	background-color: gray;
+}
+
+#resizeButton {
+	
 }

@@ -1,19 +1,22 @@
 $(document).ready(function() {
-	var answer = prompt("Enter the dimension of the box (i.e. the number of squares)", "Value should be between 1-64");
+	resizeGrid();
+});
+
+function resizeGrid() {
+	deleteGrid();
+	var answer = prompt("Enter the side length of the screen (that is, the number of squares)", "Value should be between 1-150");
 	var nSquares = parseInt(answer);
 
 	if(nSquares != null && nSquares <= 200) {
-		var squareSize = (800 / nSquares).toPrecision(15);
+		var squareSize = (700 / nSquares);
 		createGrid(nSquares*nSquares, squareSize);
 		$(".square").hover(function() {
 			$(this).css("background-color", "black");
 		});
 	} else {
-		alert("Please enter a valid number. BTW it's between 1 and 64.");
+		alert("D: Please enter a valid number. BTW it's between 1 and 150.");
 	}
-
-	
-});
+}
 
 function createGrid(number, size) {
 	var $square;
@@ -26,14 +29,31 @@ function createGrid(number, size) {
 	}
 }
 
+function deleteGrid() {
+	$(".gridbox").empty();
+}
+
+function clearGrid() {
+	$(".square").css("background-color", "gray");
+}
+
+//Function adapted from http://stackoverflow.com/questions/1152024/best-way-to-generate-a-random-color-in-javascript/14187677#14187677
+function generateRandomColor(brightness) {
+	function generateRandomHexPair() {
+		var r = 255 - brightness; //?
+		var n = 0 | ((Math.random() * r) + brightness); //?
+		var s = n.toString(16); //convert number to a HEX string
+	}
+	return '#' + generateRandomHexPair() + generateRandomHexPair() + generateRandomHexPair();
+}
 
 
 /**
-	Initially empty screen
-	button asks user for a number (prompt)
-	this number is used to determine the square size (this is because the box does not change)
-	-	take the box dimension and divide it to the number of squares. this gives you the dimension of a square
-	-	use the .css() to edit the stylesheet (in createGrid)
-	-	??
-	-	Finished.
+	Features to add:
+	1. Press a button to resize the screen (DONE)
+	2. Press a button to clear the screen (DONE)
+	3. Buttons for:
+		- random colors
+		- increasing darkness (monochrome)
+		- WITHOUT CHANGING THE SCREEN
 */
