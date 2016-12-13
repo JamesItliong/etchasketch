@@ -9,7 +9,7 @@
 	<title>Etch A Sketch!</title>
 </head>
 <body>
-	<!-- DRAWING CONTAINER -->
+	<!-- DRAWING SCREEN CONTAINER -->
 	<div class="border">
 		<div id="title">Etch A Sketch</div>
 		<div class="gridbox">
@@ -21,6 +21,7 @@
 	<div class="buttons">
 		<button id="resizeButton" onclick="resizeGrid(); return false;">Resize Grid</button>
 		<button id="clearButton" onclick="clearGrid(); return false;">Clear Grid</button>
+		<button id="styleButton" onclick="generateRandomColor(220); return false;">Toggle Style</button>
 	</div>
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>

@@ -1,20 +1,18 @@
 $(document).ready(function() {
-	resizeGrid();
+	// CREATE AN INITIAL 60X60 GRID
+	createGrid(60*60, 700/60);
 });
 
 function resizeGrid() {
 	deleteGrid();
-	var answer = prompt("Enter the side length of the screen (that is, the number of squares)", "Value should be between 1-150");
+	var answer = prompt("Enter the side length of the screen (that is, the number of squares)", "Value should be between 1-100");
 	var nSquares = parseInt(answer);
 
-	if(nSquares != null && nSquares <= 200) {
+	if(nSquares != null && nSquares <= 100) {
 		var squareSize = (700 / nSquares);
 		createGrid(nSquares*nSquares, squareSize);
-		$(".square").hover(function() {
-			$(this).css("background-color", "black");
-		});
 	} else {
-		alert("D: Please enter a valid number. BTW it's between 1 and 150.");
+		alert("D: Please enter a valid number. BTW it's between 1 and 100.");
 	}
 }
 
@@ -27,6 +25,10 @@ function createGrid(number, size) {
 		$square.css({'height': size+"px", 'width': size+"px"});
 		$(".gridbox").append($square);
 	}
+
+	$(".square").hover(function() {
+		$(this).css("background-color", generateRandomColor(50));
+	});
 }
 
 function deleteGrid() {
@@ -43,9 +45,11 @@ function generateRandomColor(brightness) {
 		var r = 255 - brightness; //?
 		var n = 0 | ((Math.random() * r) + brightness); //?
 		var s = n.toString(16); //convert number to a HEX string
+		return (s.length == 1) ? '0'+s : s;
 	}
 	return '#' + generateRandomHexPair() + generateRandomHexPair() + generateRandomHexPair();
 }
+
 
 
 /**
@@ -56,4 +60,6 @@ function generateRandomColor(brightness) {
 		- random colors
 		- increasing darkness (monochrome)
 		- WITHOUT CHANGING THE SCREEN
+
+
 */
