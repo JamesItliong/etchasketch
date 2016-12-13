@@ -1,6 +1,16 @@
+var style = 0;
+
 $(document).ready(function() {
 	// CREATE AN INITIAL 60X60 GRID
-	createGrid(60*60, 700/60);
+	createGrid(50*50, 700/50);
+
+	$(".square").hover(function() {
+		if(style === 0) {
+			$(this).css("background-color", "black");
+		} else {
+			$(this).css("background-color", generateRandomColor(50));
+		}
+	});
 });
 
 function resizeGrid() {
@@ -12,7 +22,7 @@ function resizeGrid() {
 		var squareSize = (700 / nSquares);
 		createGrid(nSquares*nSquares, squareSize);
 	} else {
-		alert("D: Please enter a valid number. BTW it's between 1 and 100.");
+		alert(":O Please enter a valid number. BTW it's between 1 and 100.");
 	}
 }
 
@@ -25,10 +35,6 @@ function createGrid(number, size) {
 		$square.css({'height': size+"px", 'width': size+"px"});
 		$(".gridbox").append($square);
 	}
-
-	$(".square").hover(function() {
-		$(this).css("background-color", generateRandomColor(50));
-	});
 }
 
 function deleteGrid() {
@@ -48,6 +54,10 @@ function generateRandomColor(brightness) {
 		return (s.length == 1) ? '0'+s : s;
 	}
 	return '#' + generateRandomHexPair() + generateRandomHexPair() + generateRandomHexPair();
+}
+
+function setStyle(option) {
+	style = option;
 }
 
 
