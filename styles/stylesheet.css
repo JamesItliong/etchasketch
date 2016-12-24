@@ -1,11 +1,10 @@
 .border {
 	position: relative;
 	margin: auto;
-	border-radius: 20px;
-	height: 800px;
-	width: 800px;
+	height: 710px;
+	width: 710px;
 
-	background-color: red;
+	background-color: #A9A9A9;
 }
 
 #title {
@@ -23,7 +22,7 @@
 	margin: auto;
 	height: 700px;
 	width: 700px;
-	top: 30px;
+	top: 5px;
 
 	background-color: gray;
 }
@@ -31,9 +30,9 @@
 .square {
 	position: relative;
 	float: left;
-	background-color: gray;
+	background-color: white;
 }
 
-#resizeButton {
-	
+#hey {
+	background-color: red;
 }
