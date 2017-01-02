@@ -5,6 +5,25 @@ var h1, h2, h3;
 $(document).ready(function() {
 	createGrid(50*50, 700/50);
 	draw();
+
+	$('#defaultColorButton').css("background-color", "black");
+
+	$('button').click(function() {
+		var buttonPressed = this.id;
+		if(buttonPressed === "defaultColorButton") {
+			$(this).css("background-color", "black");
+			$('#randomColorButton').css("background-color", "#A9A9A9");
+			$('#monochromeColorButton').css("background-color", "#A9A9A9");
+		} else if(buttonPressed === "randomColorButton") {
+			$(this).css("background-color", "black");
+			$('#defaultColorButton').css("background-color", "#A9A9A9");
+			$('#monochromeColorButton').css("background-color", "#A9A9A9");
+		} else if(buttonPressed === "monochromeColorButton") {
+			$(this).css("background-color", "black");
+			$('#randomColorButton').css("background-color", "#A9A9A9");
+			$('#defaultColorButton').css("background-color", "#A9A9A9");
+		}
+	});
 });
 
 function draw() {
@@ -20,11 +39,11 @@ function draw() {
 }
 
 function resizeGrid() {
-	deleteGrid();
 	var answer = prompt("Enter the side length of the screen (that is, the number of squares)", "Value should be between 1-100");
 	var nSquares = parseInt(answer);
 
 	if(nSquares != null && nSquares <= 100) {
+		deleteGrid();
 		var squareSize = (700 / nSquares);
 		createGrid(nSquares*nSquares, squareSize);
 		draw();
@@ -52,7 +71,10 @@ function clearGrid() {
 	$(".square").css("background-color", "white");
 }
 
-//Function from http://stackoverflow.com/questions/1152024/best-way-to-generate-a-random-color-in-javascript/14187677#14187677
+/**
+ *	Function that generates a random color based on a given brightness (0-255)
+ *	From http://stackoverflow.com/questions/1152024/best-way-to-generate-a-random-color-in-javascript/14187677#14187677
+ */
 function generateRandomColor(brightness) {
 	function generateRandomHexPair() {
 		var r = 255 - brightness; //?
@@ -65,13 +87,8 @@ function generateRandomColor(brightness) {
 }
 
 /**
-	Use variable.toString(16) to convert decimal to hex
-	Use parseInt(hexValue, 16) to convert hex to decimal
-	Use .css("attribute") to obtain value
-	format: rgb(0, 0, 0)
-*/
-
-
+ *	Function that takes a color and returns it with a darker hue
+ */
 function monochromeColor(prevColor) {
 	var brightness = 15;
 	var values = prevColor.split(/[\D]+/);
@@ -95,7 +112,6 @@ function monochromeColor(prevColor) {
 	var newColor = "#" + h1 + h2 + h3;
 	return newColor;
 }
-
 
 function setStyle(option) {
 	style = option;

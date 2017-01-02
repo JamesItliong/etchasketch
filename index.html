@@ -4,28 +4,67 @@
 <head>
 	<link rel="stylesheet" type="text/css" href="styles/reset.css">
 	<link rel="stylesheet" type="text/css" href="styles/stylesheet.css">
-	<link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 
-	<title>Etch A Sketch!</title>
+	<title>Pixel Sketch</title>
 </head>
 <body>
-	<!-- DRAWING SCREEN CONTAINER -->
-	<div class="border">
-		<div class="gridbox">
-			<!-- Grid squares are appended here. -->
+	<!-- HEADER CONTAINER -->
+	<div class="header">
+		<div id="title">PIXEL SKETCH</div>
+	</div>
+
+	<!-- MAIN CONTAINER -->
+	<div class="main">
+		<!-- buttons -->
+		<div class="buttons">
+			<div class="row1">
+				<button id="defaultColorButton" onclick="setStyle(0); return false;">DEFAULT</button>
+				<button id="randomColorButton" onclick="setStyle(2); return false;">RANDOM</button>
+				<button id="monochromeColorButton" onclick="setStyle(1); return false;">MONOCHROME</button>
+			</div>
+			<br>
+			<div class="row2">
+				<button id="resizeButton" onclick="resizeGrid(); return false;">RESIZE GRID</button>
+				<button id="clearButton" onclick="clearGrid(); return false;">CLEAR GRID</button>
+			</div>
+			<br>
+			
+		</div>
+
+		<!-- drawing screen -->
+		<div class="border">
+			<div class="gridbox">
+				<!-- Grid squares are appended here. -->
+			</div>
+		</div>
+
+		<!-- information -->
+		<div class="info">
+			<div class="row3">
+				<button id="saveButton" onclick="captureDrawing(); return false;">SAVE SKETCH</button>
+			</div>
 		</div>
 	</div>
 
-	<!-- CUSTOMISATION CONTAINER -->
-	<div class="buttons">
-		<button id="resizeButton" onclick="resizeGrid(); return false;">Resize Grid</button>
-		<button id="clearButton" onclick="clearGrid(); return false;">Clear Grid</button>
-		<button id="randomColorButton" onclick="setStyle(2); return false;">Random Colors</button>
-		<button id="monochromeColorButton" onclick="setStyle(1); return false;">Monochrome Color</button>
-		<button id="defaultColorButton" onclick="setStyle(0); return false;">Default Color</button>
-		<button id="captureButton" onclick="captureDrawing(); return false;">Save drawing</button>
-	</div>
+	<!--
+		<div id="infoText">
+				<h1>Like Etch A Sketch, with a bit of funk!</h1>
+				<br>
+				<p><strong>Default:</strong> sets cursor color to black</p>
+				<br>
+				<p>Random: gives a random color for each square</p>
+				<br>
+				<p>Monochrome: slightly darkens a square each time the cursor hovers above it</p>
+				<br>
+				<br>
+				<br>
+				<p>Download your creation when you're done!</p>
+			</div>
+ 	-->
 	
+
+	<!-- SCRIPTS -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<script src="js/html2canvas.js"></script>
 	<script src="js/grid.js"></script>
