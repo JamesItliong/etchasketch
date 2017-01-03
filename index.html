@@ -16,8 +16,9 @@
 
 	<!-- MAIN CONTAINER -->
 	<div class="main">
+
 		<!-- buttons -->
-		<div class="buttons">
+		<div class="left">
 			<div class="row1">
 				<button id="defaultColorButton" onclick="setStyle(0); return false;">DEFAULT</button>
 				<button id="randomColorButton" onclick="setStyle(2); return false;">RANDOM</button>
@@ -28,19 +29,19 @@
 				<button id="resizeButton" onclick="resizeGrid(); return false;">RESIZE GRID</button>
 				<button id="clearButton" onclick="clearGrid(); return false;">CLEAR GRID</button>
 			</div>
-			<br>
-			
 		</div>
 
 		<!-- drawing screen -->
-		<div class="border">
-			<div class="gridbox">
-				<!-- Grid squares are appended here. -->
+		<div class="center">
+			<div class="border">
+				<div class="gridbox">
+					<!-- Grid squares are appended here. -->
+				</div>
 			</div>
 		</div>
 
 		<!-- information -->
-		<div class="save">
+		<div class="right">
 			<div class="row3">
 				<button id="saveButton" onclick="captureDrawing(); return false;">SAVE SKETCH</button>
 			</div>
